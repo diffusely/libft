@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 14:12:21 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/26 16:36:11 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/23 18:29:56 by noavetis          #+#    #+#             */
+/*   Updated: 2025/01/23 19:21:25 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ptr1;
-	char	*ptr2;
+	char	c;
 
-	ptr1 = (char *)s;
-	ptr2 = NULL;
-	while (*ptr1)
+	if (n == 0)
+		write(fd, "0", 1);
+	else if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else
 	{
-		if (*ptr1 == (unsigned char)c)
-			ptr2 = ptr1;
-		ptr1++;
+		if (n < 0)
+		{
+			n *= -1;
+			write(fd, "-", 1);
+		}
+		c = (n % 10) + '0';
+		n /= 10;
+		if (n == 0)
+		{
+			write(fd, &c, 1);
+			return ;
+		}
+		ft_putnbr_fd(n, fd);
+		write(fd, &c, 1);
 	}
-	if ((unsigned char)c == '\0')
-		return (ptr1);
-	return (ptr2);
 }

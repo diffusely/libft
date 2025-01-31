@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:40:11 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/11 18:19:12 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:21:42 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	unsigned char	*ptr;
 
 	ptr = b;
-	if (!ptr)
-		return (NULL);
 	i = 0;
 	while (i < len)
 	{

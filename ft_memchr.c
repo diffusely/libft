@@ -6,7 +6,7 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 15:24:19 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/13 16:58:36 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/01/26 21:14:23 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t			i;
 
 	ptr = (unsigned char *)s;
-	if (ptr == NULL || n == 0)
-		return (NULL);
 	i = 0;
 	while (i < n)
 	{
@@ -27,7 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (ptr + i);
 		i++;
 	}
-	if (c == '\0')
-		return (ptr + i);
 	return (NULL);
 }

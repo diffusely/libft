@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 14:12:21 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/26 16:36:11 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/26 21:15:39 by noavetis          #+#    #+#             */
+/*   Updated: 2025/01/29 17:46:41 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*ptr1;
-	char	*ptr2;
+	t_list	*head;
 
-	ptr1 = (char *)s;
-	ptr2 = NULL;
-	while (*ptr1)
+	head = *lst;
+	if (!new)
+		return ;
+	if (!head)
+		*lst = new;
+	else
 	{
-		if (*ptr1 == (unsigned char)c)
-			ptr2 = ptr1;
-		ptr1++;
+		while (head->next)
+			head = head->next;
+		head->next = new;
 	}
-	if ((unsigned char)c == '\0')
-		return (ptr1);
-	return (ptr2);
 }

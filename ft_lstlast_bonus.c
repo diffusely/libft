@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/13 14:12:21 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/26 16:36:11 by noavetis         ###   ########.fr       */
+/*   Created: 2025/01/23 20:57:15 by noavetis          #+#    #+#             */
+/*   Updated: 2025/01/29 17:47:13 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*ptr1;
-	char	*ptr2;
-
-	ptr1 = (char *)s;
-	ptr2 = NULL;
-	while (*ptr1)
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 	{
-		if (*ptr1 == (unsigned char)c)
-			ptr2 = ptr1;
-		ptr1++;
+		lst = lst->next;
 	}
-	if ((unsigned char)c == '\0')
-		return (ptr1);
-	return (ptr2);
+	return (lst);
 }

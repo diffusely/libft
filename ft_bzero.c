@@ -6,11 +6,11 @@
 /*   By: noavetis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:57:48 by noavetis          #+#    #+#             */
-/*   Updated: 2025/01/11 18:25:27 by noavetis         ###   ########.fr       */
+/*   Updated: 2025/01/31 17:17:03 by noavetis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
